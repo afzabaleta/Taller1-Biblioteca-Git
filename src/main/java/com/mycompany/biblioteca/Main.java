@@ -13,7 +13,7 @@ public class Main {
     }
 
     static void crearCliente() {
-        System.out.println("=== Crear Cliente ===");
+        System.out.println("    Crear Cliente    ");
         System.out.print("ID: ");
         String id = sc.nextLine();
         System.out.print("Nombre: ");
@@ -27,4 +27,16 @@ public class Main {
         clientes.add(c);
         System.out.println("Cliente creado con éxito.");
     }
+
+    static void listarClientes() {
+        System.out.println("    Lista de Clientes    ");
+        if (clientes.isEmpty()) {
+            System.out.println("No hay clientes registrados.");
+            return;
+        }
+        for (Cliente c : clientes) {
+            System.out.println(c);
+        }
+    }
+
 }
