@@ -98,8 +98,8 @@ public class Main {
                 System.out.println("Cliente eliminado correctamente.");
                 return;
             }
-            System.out.println("Cliente no encontrado.");
         }
+        System.out.println("Cliente no encontrado.");
     }
 
     public static void crearLibro(){
@@ -169,4 +169,18 @@ public class Main {
         System.out.println("Libro no encontrado.");
     }
 
+    public static void eliminarLibros(){
+        System.out.println("    ELIMINAR LIBROS    ");
+        System.out.println("Ingrese el codigo del libro: ");
+        String codigo = sc.nextLine();
+
+        for (int i = 0; i < libros.size(); i++){
+            if (libros.get(i).getCodigo().equals(codigo)){
+                libros.remove(i);
+                System.out.println("Libro eliminado correctamente.");
+                return;
+            }
+        }
+        System.out.println("Libro no encontrado.");
+    }
 }
