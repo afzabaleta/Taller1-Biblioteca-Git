@@ -118,5 +118,14 @@ public class Main {
         System.out.println("Libro creado con éxito.");
     }
 
-
+    public static void listarLibros() {
+        System.out.println("    LISTAR LIBROS    ");
+        if (libros.isEmpty()) {
+            System.out.println("No hay libros registrados. ");
+            return;
+        }
+        for (Libro libro : libros) {
+            System.out.println(libro);
+        }
+    }
 }
