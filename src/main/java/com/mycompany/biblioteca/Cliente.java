@@ -1,6 +1,6 @@
 package com.mycompany.biblioteca;
 
-public class Cliente {
+public class Cliente extends Persona {
     private String email;
 
     public Cliente(String id, String telefono, String nombre, String email) {
@@ -19,7 +19,10 @@ public class Cliente {
     @Override
     public String toString() {
         return "Cliente{" +
-                "email='" + email + '\'' +
+                "id='" + id + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 }

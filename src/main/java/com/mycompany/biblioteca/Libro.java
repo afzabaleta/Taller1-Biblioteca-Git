@@ -1,13 +1,16 @@
 package com.mycompany.biblioteca;
 
 public class Libro extends Material {
-    private String autor;
-    private String editorial;
 
-    public Libro(String codigo, String titulo, String autor, String editorial) {
-        super(codigo, titulo);
+    private String autor;
+    private boolean disponible;
+
+    public Libro(String codigo, String titulo, String anioPublicacion,
+                 String autor, boolean disponible) {
+
+        super(codigo, titulo, anioPublicacion);
         this.autor = autor;
-        this.editorial = editorial;
+        this.disponible = disponible;
     }
 
     public String getAutor() {
@@ -18,21 +21,22 @@ public class Libro extends Material {
         this.autor = autor;
     }
 
-    public String getEditorial() {
-        return editorial;
+    public boolean isDisponible() {
+        return disponible;
     }
 
-    public void setEditorial(String editorial) {
-        this.editorial = editorial;
+    public void setDisponible(boolean disponible) {
+        this.disponible = disponible;
     }
 
     @Override
     public String toString() {
         return "Libro{" +
-                "autor='" + autor + '\'' +
-                ", editorial='" + editorial + '\'' +
-                ", codigo='" + codigo + '\'' +
+                "codigo='" + codigo + '\'' +
                 ", titulo='" + titulo + '\'' +
+                ", anioPublicacion='" + anioPublicacion + '\'' +
+                ", autor='" + autor + '\'' +
+                ", disponible=" + disponible +
                 '}';
     }
 }

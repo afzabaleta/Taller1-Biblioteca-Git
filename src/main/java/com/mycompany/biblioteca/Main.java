@@ -1,12 +1,15 @@
 package com.mycompany.biblioteca;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.time.LocalDate;
 
 public class Main {
 
     static ArrayList<Libro>libros = new ArrayList<>();
     static ArrayList<Cliente> clientes = new ArrayList<>();
+    static ArrayList<Prestamo> prestamos = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -104,17 +107,25 @@ public class Main {
 
     public static void crearLibro(){
         System.out.println("    CREAR LIBRO    ");
+
         System.out.println("Codigo: ");
         String codigo = sc.nextLine();
+
         System.out.println("Titulo: ");
         String titulo = sc.nextLine();
+
+        System.out.println("Año de publicacion: ");
+        String anioPublicacion = sc.nextLine();
+
         System.out.println("Autor: ");
         String autor = sc.nextLine();
-        System.out.println(}"Editorial: ");
-        String editorial = sc.nextLine();
 
-        Libro libro = new Libro(codigo, titulo, autor, editorial);
+        System.out.println("Disponible (true/false): ");
+        boolean disponible = Boolean.parseBoolean(sc.nextLine());
+
+        Libro libro = new Libro(codigo, titulo, anioPublicacion, autor, disponible);
         libros.add(libro);
+
         System.out.println("Libro creado con éxito.");
     }
 
@@ -155,15 +166,23 @@ public class Main {
 
                 System.out.println("Ingrese el nuevo titulo: ");
                 String titulo = sc.nextLine();
+
+                System.out.println("Ingrese el nuevo año de publicacion: ");
+                String anioPublicacion = sc.nextLine();
+
                 System.out.println("Ingrese el nuevo autor: ");
                 String autor = sc.nextLine();
-                System.out.println("Ingrese el nuevo editorial: ");
-                String editorial = sc.nextLine();
+
+                System.out.println("Ingrese si el libro esta disponible (true/false): ");
+                boolean disponible = Boolean.parseBoolean(sc.nextLine());
+
                 libro.setTitulo(titulo);
+                libro.setAnioPublicacion(anioPublicacion);
                 libro.setAutor(autor);
-                libro.setEditorial(editorial);
+                libro.setDisponible(disponible);
 
                 System.out.println("Libro actualizado correctamente.");
+                return;
             }
         }
         System.out.println("Libro no encontrado.");
@@ -183,4 +202,65 @@ public class Main {
         }
         System.out.println("Libro no encontrado.");
     }
+
+    public static void crearPrestamo(){
+        System.out.println("    REGISTRO PRESTAMO    ");
+
+        System.out.println("Ingrese el ID del Prestamo. ");
+        String idPrestamo = sc.nextLine();
+        System.out.println("Ingrese le ID del Cliente: ");
+        String idCliente = sc.nextLine();
+
+        Cliente clienteEncontrado = null;
+
+        for (Cliente cliente : clientes){
+            if (cliente.getId().equals(idCliente)){
+                clienteEncontrado = cliente;
+                break;
+            }
+        }
+        if (clienteEncontrado == null){
+            System.out.println("Cliente no encontrado.");
+            return;
+        }
+
+        System.out.println("Ingrese el codigo del libro: ");
+        String codigoLibro = sc.nextLine();
+
+        Libro libroEncontrado = null;
+
+        for (Libro libro : libros){
+            if (libro.getCodigo().equals(codigoLibro)){
+                libroEncontrado = libro;
+                break;
+            }
+        }
+
+        if (libroEncontrado == null){
+            System.out.println("Libro no encontrado.");
+            return;
+        }
+
+        if (!libroEncontrado.isDisponible()){
+            System.out.println("El libro no esta disponible.");
+            return;
+        }
+
+        LocalDate fecha = LocalDate.now();
+        String estado = "PRESTADO";
+
+        Prestamo prestamo = new Prestamo(
+                idPrestamo,
+                clienteEncontrado,
+                libroEncontrado,
+                fecha,
+                estado
+        );
+
+        prestamos.add(prestamo);
+        libroEncontrado.setDisponible(false);
+        System.out.println("Prestamo registrado correctamente. ");
+
+    }
+
 }

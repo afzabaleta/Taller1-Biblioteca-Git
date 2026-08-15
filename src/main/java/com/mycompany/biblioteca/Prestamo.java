@@ -1,12 +1,29 @@
 package com.mycompany.biblioteca;
 
+import java.time.LocalDate;
+
 public class Prestamo {
+
+    private String idPrestamo;
     private Cliente cliente;
     private Libro libro;
+    private LocalDate fecha;
+    private String estado;
 
-    public Prestamo(Libro libro, Cliente cliente) {
-        this.libro = libro;
+    public Prestamo(String idPrestamo, Cliente cliente, Libro libro, LocalDate fecha, String estado) {
+        this.idPrestamo = idPrestamo;
         this.cliente = cliente;
+        this.libro = libro;
+        this.fecha = fecha;
+        this.estado = estado;
+    }
+
+    public String getIdPrestamo() {
+        return idPrestamo;
+    }
+
+    public void setIdPrestamo(String idPrestamo) {
+        this.idPrestamo = idPrestamo;
     }
 
     public Cliente getCliente() {
@@ -25,11 +42,30 @@ public class Prestamo {
         this.libro = libro;
     }
 
+    public LocalDate getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
     @Override
     public String toString() {
         return "Prestamo{" +
-                "cliente=" + cliente +
+                "idPrestamo='" + idPrestamo + '\'' +
+                ", cliente=" + cliente +
                 ", libro=" + libro +
+                ", fecha=" + fecha +
+                ", estado='" + estado + '\'' +
                 '}';
     }
 }
