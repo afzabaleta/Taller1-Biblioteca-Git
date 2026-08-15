@@ -280,4 +280,15 @@ public class Main {
         System.out.println("Prestamo no encontrado.");
     }
 
+    public static void listarPrestamos() {
+        System.out.println("    LISTAR PRESTAMO    ");
+        if (prestamos.isEmpty()) {
+            System.out.println("No hay prestamos registrados. ");
+            return;
+        }
+        for (Prestamo prestamo : prestamos) {
+            System.out.println(prestamo);
+        }
+    }
+
 }
