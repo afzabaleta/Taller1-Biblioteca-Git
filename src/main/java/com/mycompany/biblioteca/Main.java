@@ -39,4 +39,20 @@ public class Main {
         }
     }
 
+    public static void buscarCliente() {
+        System.out.println("=== BUSCAR CLIENTE ===");
+
+        System.out.print("Ingrese el ID del cliente: ");
+        String id = sc.nextLine();
+
+        for (Cliente cliente : clientes) {
+            if (cliente.getId().equals(id)) {
+                System.out.println("Cliente encontrado:");
+                System.out.println(cliente);
+                return;
+            }
+        }
+
+        System.out.println("Cliente no encontrado.");
+    }
 }
