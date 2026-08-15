@@ -1,12 +1,15 @@
 package com.mycompany.biblioteca;
 
 public class Material {
+
     protected String codigo;
     protected String titulo;
+    protected String anioPublicacion;
 
-    public Material(String codigo, String titulo) {
+    public Material(String codigo, String titulo, String anioPublicacion) {
         this.codigo = codigo;
         this.titulo = titulo;
+        this.anioPublicacion = anioPublicacion;
     }
 
     public String getCodigo() {
@@ -25,11 +28,20 @@ public class Material {
         this.titulo = titulo;
     }
 
+    public String getAnioPublicacion() {
+        return anioPublicacion;
+    }
+
+    public void setAnioPublicacion(String anioPublicacion) {
+        this.anioPublicacion = anioPublicacion;
+    }
+
     @Override
     public String toString() {
         return "Material{" +
                 "codigo='" + codigo + '\'' +
                 ", titulo='" + titulo + '\'' +
+                ", anioPublicacion='" + anioPublicacion + '\'' +
                 '}';
     }
 }
