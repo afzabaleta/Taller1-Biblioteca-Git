@@ -263,4 +263,21 @@ public class Main {
 
     }
 
+    public static void devolucion(){
+        System.out.println("    DEVOLUCION DE PRESTAMO    ");
+
+        System.out.println("Ingrese el ID del prestamo: ");
+        String idPrestamo = sc.nextLine();
+
+        for (Prestamo prestamo : prestamos){
+            if (prestamo.getIdPrestamo().equals(idPrestamo)){
+                prestamo.setEstado("DEVUELTO");
+                prestamo.getLibro().setDisponible(true);
+
+                System.out.println("Prestamo devuelto correctamente.");
+            }
+        }
+        System.out.println("Prestamo no encontrado.");
+    }
+
 }
