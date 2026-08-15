@@ -145,4 +145,28 @@ public class Main {
         System.out.println("Libro no encontrado.");
     }
 
+    public static void actualizarLibros(){
+        System.out.println("    ACTUALIZAR LIBROS    ");
+        System.out.println("Ingrese el codigo del libro: ");
+        String codigo = sc.nextLine();
+
+        for (Libro libro : libros){
+            if (libro.getCodigo().equals(codigo)){
+
+                System.out.println("Ingrese el nuevo titulo: ");
+                String titulo = sc.nextLine();
+                System.out.println("Ingrese el nuevo autor: ");
+                String autor = sc.nextLine();
+                System.out.println("Ingrese el nuevo editorial: ");
+                String editorial = sc.nextLine();
+                libro.setTitulo(titulo);
+                libro.setAutor(autor);
+                libro.setEditorial(editorial);
+
+                System.out.println("Libro actualizado correctamente.");
+            }
+        }
+        System.out.println("Libro no encontrado.");
+    }
+
 }
