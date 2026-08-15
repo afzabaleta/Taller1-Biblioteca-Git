@@ -40,7 +40,7 @@ public class Main {
     }
 
     public static void buscarCliente() {
-        System.out.println("=== BUSCAR CLIENTE ===");
+        System.out.println("    BUSCAR CLIENTE    ");
 
         System.out.print("Ingrese el ID del cliente: ");
         String id = sc.nextLine();
@@ -55,4 +55,33 @@ public class Main {
 
         System.out.println("Cliente no encontrado.");
     }
+
+    public static void actualizarcliente(){
+        System.out.println("    ACTUALIZAR CLEINTE    ");
+
+        System.out.println("Ingrese le ID del cliente: ");
+        String id = sc.nextLine();
+
+        for (Cliente cliente : clientes){
+            if (cliente.getId().equals(id)){
+
+                System.out.println("Ingrese el nuevo nombre: ");
+                String nombre = sc.nextLine();
+
+                System.out.println("Ingrese el nuevo telefono: ");
+                String telefono = sc.nextLine();
+
+                System.out.println("Ingrese el nuevo email: ");
+                String email = sc.nextLine();
+
+                cliente.setNombre(nombre);
+                cliente.setTelefono(telefono);
+                cliente.setEmail(email);
+
+                System.out.println("Cliente actualizado correctamente.");
+            }
+        }
+        System.out.println("Cliente no encontrado.");
+    }
+
 }
