@@ -1,10 +1,10 @@
 package com.mycompany.biblioteca;
 
-public class Cliente extends Persona {
+public class Client extends Person {
     private String email;
 
-    public Cliente(String id, String telefono, String nombre, String email) {
-        super(id, telefono, nombre);
+    public Client(String id, String phone, String name, String email) {
+        super(id, phone, name);
         this.email = email;
     }
 
@@ -18,10 +18,10 @@ public class Cliente extends Persona {
 
     @Override
     public String toString() {
-        return "Cliente{" +
+        return "Client{" +
                 "id='" + id + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", telefono='" + telefono + '\'' +
+                ", name='" + name + '\'' +
+                ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 '}';
     }

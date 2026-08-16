@@ -2,46 +2,46 @@ package com.mycompany.biblioteca;
 
 public class Material {
 
-    protected String codigo;
-    protected String titulo;
-    protected String anioPublicacion;
+    protected String code;
+    protected String title;
+    protected String publicationYear;
 
-    public Material(String codigo, String titulo, String anioPublicacion) {
-        this.codigo = codigo;
-        this.titulo = titulo;
-        this.anioPublicacion = anioPublicacion;
+    public Material(String code, String title, String publicationYear) {
+        this.code = code;
+        this.title = title;
+        this.publicationYear = publicationYear;
     }
 
-    public String getCodigo() {
-        return codigo;
+    public String getCode() {
+        return code;
     }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+    public void setCode(String code) {
+        this.code = code;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getAnioPublicacion() {
-        return anioPublicacion;
+    public String getPublicationYear() {
+        return publicationYear;
     }
 
-    public void setAnioPublicacion(String anioPublicacion) {
-        this.anioPublicacion = anioPublicacion;
+    public void setPublicationYear(String publicationYear) {
+        this.publicationYear = publicationYear;
     }
 
     @Override
     public String toString() {
         return "Material{" +
-                "codigo='" + codigo + '\'' +
-                ", titulo='" + titulo + '\'' +
-                ", anioPublicacion='" + anioPublicacion + '\'' +
+                "code='" + code + '\'' +
+                ", title='" + title + '\'' +
+                ", publicationYear='" + publicationYear + '\'' +
                 '}';
     }
 }
